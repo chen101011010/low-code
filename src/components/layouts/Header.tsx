@@ -1,12 +1,11 @@
-import { RouterView } from 'vue-router';
 import { defineComponent } from 'vue';
-import '@/assets/styles/reset.scss';
+
 export default defineComponent({
-    name: 'app',
+    name: 'Header',
     setup() {
         return () => (
             <>
-                <RouterView />
+                <div>头部区域</div>
             </>
         );
     },

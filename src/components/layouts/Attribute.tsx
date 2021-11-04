@@ -1,12 +1,11 @@
-import { RouterView } from 'vue-router';
 import { defineComponent } from 'vue';
-import '@/assets/styles/reset.scss';
+
 export default defineComponent({
-    name: 'app',
+    name: 'Attribute',
     setup() {
         return () => (
             <>
-                <RouterView />
+                <div>右侧属性</div>
             </>
         );
     },
