@@ -1,12 +1,10 @@
+import { css, StyleSheet } from 'aphrodite';
 import { defineComponent } from 'vue';
-import { styles } from './css';
-import { css } from 'aphrodite';
 export default defineComponent({
     name: 'Grid',
     setup() {
         return () => (
-            <>
-                <div class={css(styles.red)}>enenen</div>
+            <div class={css(styles.grid)}>
                 <svg class="grid" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
                     <defs>
                         <pattern
@@ -43,7 +41,16 @@ export default defineComponent({
                     </defs>
                     <rect width="100%" height="100%" fill="url(#grid)"></rect>
                 </svg>
-            </>
+            </div>
         );
+    },
+});
+const styles = StyleSheet.create({
+    grid: {
+        width: '500px',
+        margin: '0 auto',
+        height: '200%',
+        minHeight: '100%',
+        background: '#fff',
     },
 });

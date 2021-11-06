@@ -22,14 +22,22 @@ export default defineComponent({
         });
         return () => (
             <>
-                <header class={css(styles.header)} ref={header}></header>
+                <header class={css(styles.header)} ref={header}>
+                    <Header />
+                </header>
                 <section
                     class={css(styles.container)}
                     style={{ height: state.containerHeight + 'px' }}
                 >
-                    <article class={css(styles.articleLeft)}></article>
-                    <section class={css(styles.center)}></section>
-                    <article class={css(styles.articleRight)}></article>
+                    <article class={css(styles.articleLeft)}>
+                        <List />
+                    </article>
+                    <section class={css(styles.center)}>
+                        <Editor />
+                    </section>
+                    <article class={css(styles.articleRight)}>
+                        <Attribute />
+                    </article>
                 </section>
             </>
         );
@@ -40,7 +48,6 @@ const styles = StyleSheet.create({
     header: {
         width: '100%',
         height: '80px',
-        background: 'red',
         minWidth: '1280px',
     },
     container: {
@@ -51,21 +58,21 @@ const styles = StyleSheet.create({
         minWidth: '1280px',
     },
     articleLeft: {
-        width: '300px',
+        width: '350px',
         height: '100%',
-        background: 'pink',
         marginRight: '20px',
     },
     center: {
         width: 'auto',
         height: '100%',
         flex: '1',
-        background: 'blue',
+        padding: '20px 0 100px',
+        background: '#eee',
+        overflowY: 'scroll',
     },
     articleRight: {
-        width: '300px',
+        width: '350px',
         height: '100%',
-        background: 'yellow',
         marginLeft: '20px',
     },
 });

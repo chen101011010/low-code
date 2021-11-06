@@ -59,7 +59,10 @@ tfoot,
 thead,
 tr,
 th,
-td {
+td,
+section,
+header,
+article {
     margin: 0;
     padding: 0;
     border: 0;
@@ -111,4 +114,7 @@ del {
 table {
     border-collapse: collapse;
     border-spacing: 0;
+}
+img {
+    width: 100%;
 }
