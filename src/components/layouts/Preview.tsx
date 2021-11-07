@@ -1,15 +1,29 @@
-import { defineComponent } from 'vue';
+import { defineComponent, PropType, resolveComponent, watchEffect, reactive } from 'vue';
 import { StyleSheet, css } from 'aphrodite/no-important';
+
 export default defineComponent({
-    name: 'Editor',
-    setup() {
+    name: 'Preview',
+    props: {
+        componentName: {
+            type: String as PropType<string>,
+        },
+    },
+    components: {},
+    setup(props) {
+        const state = reactive({
+            component: resolveComponent(''),
+        });
+        watchEffect(() => {
+            state.component = resolveComponent(props.componentName as string);
+            console.log(state.component);
+        });
         return () => (
             <section class={css(styles.container)}>
                 <header class={css(styles.header)}>
                     <div>
                         <img src={require('@/assets/images/editor-header.png')} alt="" />
                     </div>
-                    <h3 class={css(styles.headerTitle)}>页面标题</h3>
+                    <h3 class={css(styles.headerTitle)}>组件预览</h3>
                 </header>
                 <div class={css(styles.content)}></div>
             </section>
